@@ -3,13 +3,13 @@
     <form>
       <div class="form-group">
         <label for="action">Action</label>
-        <input id="action" type="text" class="form-control" placeholder="Rentrez une action à réaliser">
+        <input v-model="formData.task" id="action" type="text" class="form-control" placeholder="Rentrez une action à réaliser">
       </div>
-      <button class="btn btn-primary mt-4">Créer une tâche</button>
+      <button @click.prevent="addTask" class="btn btn-primary mt-4">Créer une tâche</button>
     </form>
     <ul class="list-group mt-4">
       <li v-for="(task, i) in tasks" :key="i" class="mt-4">
-        <Item :task="task" />
+        <Item :id="i" :task="task" :deleteTask="deleteTask" />
       </li>
     </ul>
   </div>
@@ -30,6 +30,20 @@ export default {
         task: ''
       },
       tasks: ['Javascript', 'Vue', 'Python', 'React']
+    }
+  },
+  methods: {
+    addTask: function() {
+      const task = this.formData.task
+      if (task === '') {
+        return
+      }
+      this.tasks.push(task)
+      this.formData.task = ''
+    },
+    deleteTask: function(e) {
+      const id = e.target.parentNode.id
+      this.tasks.splice(id, 1)
     }
   }
 }
