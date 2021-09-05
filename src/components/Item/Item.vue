@@ -1,14 +1,14 @@
 <template>
   <div class="card my2 item-todo">
     <p>{{ task }}</p>
-    <div class="btn-suppr btn btn-danger">X</div>
+    <div @click.prevent="deleteTask" class="btn-suppr btn btn-danger">X</div>
   </div>
 </template>
 
 <script>
 export default {
   name: "Item",
-  props: ['task', 'delete']
+  props: ['task', 'deleteTask'],
 }
 </script>
 
