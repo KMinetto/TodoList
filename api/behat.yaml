@@ -1,0 +1,37 @@
+default:
+  suites:
+    add_item:
+      contexts:
+          - 'App\Features\AddItemContext'
+      paths:
+        - '%paths.base%/features/add_item.feature'
+    check_item:
+      contexts:
+        - 'App\Features\CheckItemContext'
+      paths:
+        - '%paths.base%/features/check_item.feature'
+    modify_item:
+      contexts:
+        - 'App\Features\ModifyItemContext'
+      paths:
+        - '%paths.base%/features/modify_item.feature'
+    register_todos:
+      contexts:
+        - 'App\Features\RegisterTodosContext'
+      paths:
+        - '%paths.base%/features/register_todos.feature'
+    register:
+      contexts:
+        - 'App\Features\RegisterContext'
+      paths:
+        - '%paths.base%/features/register.feature'
+    remove_item:
+      contexts:
+        - 'App\Features\RemoveItemContext'
+      paths:
+        - '%paths.base%/features/remove_item.feature'
+    remove_todo:
+      contexts:
+        - 'App\Features\RemoveTodoContext'
+      paths:
+        - '%paths.base%/features/remove_todo.feature'
